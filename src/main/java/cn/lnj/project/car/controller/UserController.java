@@ -52,6 +52,7 @@ public class UserController {
             user.setUserCount(email);
             user.setUserName(userName);
             user.setUserEmail(email);
+            user.setIsActive(1);
             user.setUserPassword(userPassword);
             Date currentTime = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,10 +60,9 @@ public class UserController {
             user.setUserRegistration(dateString);
             user.setUserImage("default.png");
             userService.insertUser(user);
-            sendMail.active(email,user.getUserId());
+            //sendMail.active(email,user.getUserId());
         }
     }
-
     /**
      * 查询全部用户
      * @return 全部用户的javaBean

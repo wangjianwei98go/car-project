@@ -23,6 +23,8 @@ public class Order {
 
     @Column(name = "order_time")
     private String orderTime;
+    @Column(name = "end_time")
+    private String endTime;
 
     public String getOrderId() {
         return orderId;
@@ -70,5 +72,12 @@ public class Order {
 
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 }

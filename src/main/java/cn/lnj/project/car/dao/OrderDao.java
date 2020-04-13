@@ -21,4 +21,12 @@ public interface OrderDao {
      * @return
      */
     List<Order> selectByUserId(String userId);
+    /*
+    * 查询该商户下的订单
+    * shopId
+    * */
+    List<Order> selectByShopId(String shopId);
+
+    void editOrder(Order order);
+    Order FindById(String orderId);
 }

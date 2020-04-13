@@ -9,7 +9,8 @@
 <html>
 <head>
     <title>滴滴租车</title>
-    <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/skins/images/car.ico" media="screen"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/skins/images/car.ico"
+          media="screen"/>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/public/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/public/autocomplete.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/public/header.css">
@@ -56,104 +57,104 @@
             <div class="item-message">
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/bieke.png">
-                    <span>别克</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/bieke.png">
+                        <span>别克</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/bentian.png">
-                    <span>本田</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/bentian.png">
+                        <span>本田</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/dazhong.png">
-                    <span>大众</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/dazhong.png">
+                        <span>大众</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/fute.png">
-                    <span>福特</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/fute.png">
+                        <span>福特</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/richan.png">
-                    <span>日产</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/richan.png">
+                        <span>日产</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/biaozhi.png">
-                    <span>标致</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/biaozhi.png">
+                        <span>标致</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/jeep.png">
-                    <span>Jeep</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/jeep.png">
+                        <span>Jeep</span>
                     </a>
                 </div>
                 <div class="car-brand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/baoma.png">
-                    <span>宝马</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/baoma.png">
+                        <span>宝马</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/mazida.png">
-                    <span>马自达</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/mazida.png">
+                        <span>马自达</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/woerwo.png">
-                    <span>沃尔沃</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/woerwo.png">
+                        <span>沃尔沃</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/aerfa.png">
-                    <span>阿尔法罗密欧</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/aerfa.png">
+                        <span>阿尔法罗密欧</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/aodi.png">
-                    <span>奥迪</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/aodi.png">
+                        <span>奥迪</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/benchi.png">
-                    <span>奔驰</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/benchi.png">
+                        <span>奔驰</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/benteng.png">
-                    <span>奔腾</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/benteng.png">
+                        <span>奔腾</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/byd.png">
-                    <span>比亚迪</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/byd.png">
+                        <span>比亚迪</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/dongfeng.png">
-                    <span>东风</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/dongfeng.png">
+                        <span>东风</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
                     <a>
-                    <img src="<%=request.getContextPath()%>/skins/images/dongfengfengxing.png">
-                    <span>东风风行</span>
+                        <img src="<%=request.getContextPath()%>/skins/images/dongfengfengxing.png">
+                        <span>东风风行</span>
                     </a>
                 </div>
                 <div class="car-brand hideBrand">
@@ -324,20 +325,20 @@
     {{each resultSet as searchData}}
     <div href="{{searchData.carId}}" class="col-md-3 carInfo">
         <a href="<%=request.getContextPath()%>/jsp/detail.jsp?carId={{searchData.carId}}">
-        <img src="<%=request.getContextPath()%>/skins/images/{{searchData.carImage}}">
-        <div>
-            <p>
-                <span class="car-price">￥{{searchData.carPrice}}</span>
-                <span class="car-rent-count">租赁次数：{{searchData.rentCount}}</span>
-            </p>
-            <p>
-                剩余车辆：{{searchData.carAmount}}
-            </p>
-            <p>
-                <span>{{searchData.carBrand}}&nbsp;&nbsp;{{searchData.carName}}</span>
-            </p>
-            <a href="<%=request.getContextPath()%>/jsp/detail.jsp?shopId={{searchData.shopId}}">{{searchData.shopName}}</a>
-        </div>
+            <img src="<%=request.getContextPath()%>/skins/images/{{searchData.carImage}}">
+            <div>
+                <p>
+                    <span class="car-price">￥{{searchData.carPrice}}</span>
+                    <span class="car-rent-count">租赁次数：{{searchData.rentCount}}</span>
+                </p>
+                <p>
+                    剩余车辆：{{searchData.carAmount}}
+                </p>
+                <p>
+                    <span>{{searchData.carBrand}}&nbsp;&nbsp;{{searchData.carName}}</span>
+                </p>
+                <a href="<%=request.getContextPath()%>/jsp/detail.jsp?shopId={{searchData.shopId}}">{{searchData.shopName}}</a>
+            </div>
         </a>
     </div>
     {{/each}}

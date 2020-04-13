@@ -24,9 +24,9 @@
 <%--顶部嵌入顶部信息栏--%>
 <jsp:include page="public/header.jsp"></jsp:include>
 
-    <div class="content">
+<div class="content">
 
-    </div>
+</div>
 <%--商家或个人位置，并且展示地图并进行标点--%>
 
 <%--底部栏--%>
@@ -42,9 +42,9 @@
         </ol>
         <div class="carousel-inner">
             {{each carResult.carImages as image}}
-                <div class="item">
-                    <img src="../skins/images/{{image}}">
-                </div>
+            <div class="item">
+                <img src="../skins/images/{{image}}">
+            </div>
             {{/each}}
         </div>
         <a class="carousel-control left" href="#image-around"
@@ -57,19 +57,19 @@
             <table class="table table-bordered">
                 <tr>
                     <td>租赁天数：/天</td>
-                    <td> <input type="number" class="day" datatype="n" nullmsg="请输入天数" placeholder="请输入租赁天数">
+                    <td> <input type="number" class="day" datatype="n" nullmsg="请输入天数" placeholder="请输入续租天数">
                         <span class="Validform_checktip"></span>
                     </td>
                 </tr>
                 <tr>
                     <td>租赁数量：/辆</td>
-                    <td><input type="number" class="count" datatype="amount" nullmsg="请输入车辆数" placeholder="请输入租赁数量" errormsg="数量错误">
+                    <td><input type="number" class="count" datatype="amount" nullmsg="请输入车辆数" placeholder="请输入续租数量" errormsg="数量错误">
                         <span class="Validform_checktip"></span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" class="confirm">
-                        <button class="btn btn-primary" id="rentConfirm">确定</button>
+                        <button class="btn btn-primary" id="aaa">确定</button>
                         <%--<button class="btn btn-success addShop">加入购物车</button>--%>
                     </td>
                 </tr>
@@ -143,10 +143,10 @@
             <td>{{carResult.shopPhone}}</td>
         </tr>
     </table>
-    <div class="row shopInfo">
+   <%-- <div class="row shopInfo">
 
         <h3 class="carList-title">类似车辆：</h3>
-        <%-- 相同类型的车辆展示  --%>
+        &lt;%&ndash; 相同类型的车辆展示  &ndash;%&gt;
         {{each carResult.likeCarList as searchData}}
         <div href="{{searchData.carId}}" class="col-md-3 carInfo">
             <img src="../skins/images/{{searchData.carImage}}">
@@ -165,7 +165,7 @@
             </div>
         </div>
         {{/each}}
-    </div>
+    </div>--%>
 </script>
 
 <%-- 商家信息模板 --%>
@@ -188,9 +188,9 @@
             <td>{{shopResult.carCount}}</td>
         </tr>
     </table>
-    <div class="row shopInfo">
+ <%--   <div class="row shopInfo">
         <h3 class="carList-title">该商家下的车辆：</h3>
-    <%-- 商家下的车辆展示  --%>
+        &lt;%&ndash; 商家下的车辆展示  &ndash;%&gt;
         {{each shopResult.carList as searchData}}
         <div href="{{searchData.carId}}" class="col-md-3 carInfo">
             <img src="../skins/images/{{searchData.carImage}}">
@@ -209,7 +209,7 @@
             </div>
         </div>
         {{/each}}
-    </div>
+    </div>--%>
 </script>
 <%--<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=************"></script>--%>
 </body>
@@ -224,6 +224,6 @@
 <script type="text/javascript" src="../skins/js/public/autocomplete.js"></script>
 <script type="text/javascript" src="../skins/js/public/header.js"></script>
 <script type="text/javascript" src="../skins/js/public/arttemplate.js"></script>
-<script type="text/javascript" src="../skins/js/detail.js"></script>
+<script type="text/javascript" src="../skins/js/again.js"></script>
 
 </html>

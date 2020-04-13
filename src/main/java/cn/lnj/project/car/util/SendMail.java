@@ -25,9 +25,9 @@ public class SendMail {
      * @param content 具体内容
      */
 
-    private static final String SMTP_HOST = "";
-    private static final String USER_MAIL_ADDRESS = "";
-    private static final String USER_PASSWORD = "";
+    private static final String SMTP_HOST = "smtp.qq.com";
+    private static final String USER_MAIL_ADDRESS = "1319306838@qq.com";
+    private static final String USER_PASSWORD = "weiwei1998";
 
     private void sendMail(String address, String title, String content) {
         // 配置发送邮件的环境属性

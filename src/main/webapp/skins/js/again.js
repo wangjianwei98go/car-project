@@ -17,7 +17,7 @@
     });
 
     $(".confirm-form").Validform({
-        btnSubmit:"#rentConfirm",
+        btnSubmit:"#aaa",
         tiptype:3,
         datatype:{
             //参数gets是获取到的表单元素值，obj为当前表单元素，curform为当前验证的表单，regxp为内置的一些正则表达式的引用;
@@ -31,7 +31,7 @@
             }
         },
         callback:function(data){
-            rentConfirm();
+            rentagain();
         }
     });
 
@@ -49,7 +49,7 @@ function onLoad() {
             //参数类型
             var param = canshu.substring(0,index);
             //参数id
-            var id = canshu.substring(index+1);
+            var id= canshu.substring(index+1);
             //判断是车辆还是商家
             if(param == "carId"){
                 ajaxFUN("car",id);
@@ -64,7 +64,11 @@ function onLoad() {
         $("html").empty().html("<h4>输入参数不完整，请重试！</h4>");
     }
 }
-
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]); return null;
+}
 function ajaxFUN(type,id) {
     $.ajax({
         url: context + "/service/"+type+"/id",
@@ -91,9 +95,7 @@ function ajaxFUN(type,id) {
                         "shopResult": info
                     });
                     $(".content").empty().append(temp);
-                    var jingdu = info.shopJingDu;
-                    var weidu = info.shopWeiDu;
-                  /*  setPotin(jingdu,weidu);*/
+
                 }
             }else {
                 $(".content").empty().html("<a href='index.jsp'>对不起，该车辆已下架，请重新选择车辆吧。</a>2秒后自动跳转到首页");
@@ -120,50 +122,10 @@ function addActive() {
     $("#image-around>.carousel-inner>.item").eq(0).addClass("active");
 }
 
-/*//TODO 将导航结果进行展示
-//百度地图初始化和传参
-function setPotin(jingdu,weidu) {
-    var shopPoint = new BMap.Point(jingdu,weidu);
-    var map = new BMap.Map("allmap");
-    map.centerAndZoom(shopPoint, 15);
-    map.addControl(new BMap.NavigationControl());
-
-    //添加gps marker和label
-    var markerShopPoint = new BMap.Marker(shopPoint);
-    map.addOverlay(markerShopPoint); //添加GPS marker
-    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-
-    var userJingdu;
-    var userWeidu;
-    var driving = new BMap.DrivingRoute(map, {
-        renderOptions: {
-            map: map,
-            panel : "results",
-            autoViewport: true
-        }
-    });
-    var geolocation = new BMap.Geolocation();
-    // 开启SDK辅助定位
-    //geolocation.enableSDKLocation();
-    geolocation.getCurrentPosition(function(r){
-        if(this.getStatus() == BMAP_STATUS_SUCCESS){
-            var mk = new BMap.Marker(r.point);
-            map.addOverlay(mk);
-            map.panTo(r.point);
-            userJingdu = r.point.lng;
-            userWeidu = r.point.lat;
-            var userPoint = new BMap.Point(userJingdu,userWeidu);
-            driving.search(userPoint, shopPoint);
-        }
-        else {
-            alert('failed'+this.getStatus());
-        }
-    });
-
-}*/
-
-function rentConfirm() {
+function rentagain() {
     var  user = getCookie("userName");
+    var orderId=getQueryString("orderId");
+    alert(orderId);
     var carBrand = $(".car-brand").text();
     var carName = $(".car-name").text();
     var day =$(".day").val();
@@ -172,14 +134,14 @@ function rentConfirm() {
     var allPrice = price*count*day;
     if(user){
         var d = dialog({
-            title:"结算信息",
+            title:"续租信息",
             content: '您选择了'+carBrand +'  '+carName+',' +
-                    day+'天，'+count+'辆'+
-                    '共'+allPrice+'元！',
-            okValue: '结算',
+                day+'天，'+count+'辆'+
+                '共'+allPrice+'元！',
+            okValue: '确认续租',
             ok: function () {
-                window.location.href = context +"/jsp/index.jsp";
-                rent(carBrand,carName,day,count,allPrice);
+                window.location.href = document.referrer;
+                rentagain1(orderId,day,count,allPrice);
             },
             cancelValue: '取消',
             cancel: function () {}
@@ -199,25 +161,16 @@ function rentConfirm() {
     }
 }
 
-function rent(carBrand ,carName,day,count,price) {
-    var url = window.location.href;
-    var params = url.indexOf("=");
-    //是否带参
-    if (!(params == -1)) {
-        var carId = url.substring(params + 1);
-    }
+function  rentagain1(orderId,day,count,price) {
     var userId=getCookie("userId");
-    var shopId=$(".shopId").attr("value");
     $.ajax({
-        url: context + "/service/order/insert",
+        url: context + "/service/order/again",
         type: 'GET',
         async: true,
         contentType: "application/json;charset=utf-8",
-        data:{"carId":carId,"userId":userId,"shopId":shopId,"price":price,"count":count,"day":day},
+        data:{"orderId":orderId,"userId":userId,"price":price,"count":count,"day":day},
         success: function (data) {
         }
     });
-    window.location.href = context +"/jsp/index.jsp";
+    window.location.href = document.referrer;
 }
-
-

@@ -72,7 +72,8 @@ public class UserServiceImpl implements UserService {
                 Shop shop = shopDao.selectById(content.getShopId());
                 order.put("shopName",shop.getShopName());
                 order.put("orderTime",content.getOrderTime());
-
+                order.put("endTime",content.getEndTime());
+                order.put("orderId",content.getOrderId());
                 orders.add(order);
             }
             result.put("orders",orders);

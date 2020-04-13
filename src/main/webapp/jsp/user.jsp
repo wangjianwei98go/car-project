@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>用户页面</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../skins/images/car.ico" media="screen" />
+    <link rel="shortcut icon" type="image/x-icon" href="../skins/images/car.ico" media="screen"/>
     <link rel="stylesheet" type="text/css" href="../skins/css/public/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../skins/css/public/dialog.css">
     <link rel="stylesheet" type="text/css" href="../skins/css/public/autocomplete.css">
@@ -24,9 +24,9 @@
 <jsp:include page="public/header.jsp"></jsp:include>
 <%--用户页面，展示用户的相关信息--%>
 <%--包括个人基本信息，历史订单等--%>
-    <div class="content">
+<div class="content">
 
-    </div>
+</div>
 
 <%--底部嵌入底部信息栏--%>
 <jsp:include page="public/footer.jsp"></jsp:include>
@@ -34,7 +34,8 @@
 <%-- 用户模板 --%>
 <script type="text/html" id="userResult">
     <div class="userImage">
-        <img src="../skins/images/{{userResult.baseInfo.userImage}}" class="img-thumbnail user-image-show" alt="用户头像" title="用户头像"><br>
+        <img src="../skins/images/{{userResult.baseInfo.userImage}}" class="img-thumbnail user-image-show" alt="用户头像"
+             title="用户头像"><br>
         <input type="file" class="user-image-upload" style="display:none" onchange="getImgURL(this)" name="userImage">
         <button class="btn btn-primary changeImage">更换头像</button>
         <button class="btn btn-primary save-image"><i class="glyphicon glyphicon-ok"></i>保存</button>
@@ -47,7 +48,8 @@
                 <tr>
                     <td>用户昵称：</td>
                     <td>
-                        <input type="text" class="bottomLine user-name-edit" value="{{userResult.baseInfo.userName}}" readonly>
+                        <input type="text" class="bottomLine user-name-edit" value="{{userResult.baseInfo.userName}}"
+                               readonly>
                     </td>
                 </tr>
             </table>
@@ -61,7 +63,8 @@
                 </tr>
                 <tr>
                     <td>请输入新密码：</td>
-                    <td><input type="password" placeholder="请输入新密码" class="newPassword" name="newPassword" datatype="*6-16"></td>
+                    <td><input type="password" placeholder="请输入新密码" class="newPassword" name="newPassword"
+                               datatype="*6-16"></td>
                 </tr>
                 <tr>
                     <td>请重复输入密码：</td>
@@ -94,7 +97,8 @@
             </tr>
             <tr>
                 <td>注册时间：</td>
-                <td><input type="text" class="bottomLine" value="{{userResult.baseInfo.userRegistration}}" readonly></td>
+                <td><input type="text" class="bottomLine" value="{{userResult.baseInfo.userRegistration}}" readonly>
+                </td>
             </tr>
             <tr>
                 <td>租赁次数：</td>
@@ -109,12 +113,18 @@
                     <th>车辆名称</th>
                     <th>商家名称</th>
                     <th>租赁时间</th>
+                    <th>到期时间</th>
+                    <th>续租</th>
+                    <th>还车</th>
                 </tr>
                 {{each userResult.orders as order }}
                 <tr>
-                    <td><a href="detail.jsp?carId={{order.carId}}">{{order.carBrand}}  {{order.carName}}</a></td>
+                    <td><a href="detail.jsp?carId={{order.carId}}">{{order.carBrand}} {{order.carName}}</a></td>
                     <td><a href="detail.jsp?shopId={{order.shopId}}">{{order.shopName}}</a></td>
                     <td>{{order.orderTime}}</td>
+                    <td>{{order.endTime}}</td>
+                    <td><a href="RentAgain.jsp?carId={{order.carId}}&orderId={{order.orderId}}">续租</a></td>
+                    <td><a href="detail.jsp?carId={{order.carId}}">还车</a></td>
                 </tr>
                 {{/each}}
             </table>
@@ -129,8 +139,10 @@
     <%-- 首先是个人基本信息 --%>
     <div class="baseInfo-div">
         <div class="userImage">
-            <img src="../skins/images/{{adminResult.baseInfo.userImage}}" class="img-thumbnail user-image-show" alt="用户头像" title="用户头像"><br>
-            <input type="file" class="user-image-upload" style="display:none" onchange="getImgURL(this)" name="userImage">
+            <img src="../skins/images/{{adminResult.baseInfo.userImage}}" class="img-thumbnail user-image-show"
+                 alt="用户头像" title="用户头像"><br>
+            <input type="file" class="user-image-upload" style="display:none" onchange="getImgURL(this)"
+                   name="userImage">
             <button class="btn btn-primary changeImage">更换头像</button>
             <button class="btn btn-default save-image"><i class="glyphicon glyphicon-ok"></i>保存</button>
         </div>
@@ -141,7 +153,8 @@
                 <table class="table">
                     <tr>
                         <td>用户昵称：</td>
-                        <td><input type="text" class="bottomLine user-name-edit" value="{{adminResult.baseInfo.userName}}" readonly></td>
+                        <td><input type="text" class="bottomLine user-name-edit"
+                                   value="{{adminResult.baseInfo.userName}}" readonly></td>
                     </tr>
                 </table>
             </form>
@@ -154,7 +167,8 @@
                     </tr>
                     <tr>
                         <td>请输入新密码：</td>
-                        <td><input type="password" placeholder="请输入新密码" class="newPassword" name="newPassword" datatype="*6-16"></td>
+                        <td><input type="password" placeholder="请输入新密码" class="newPassword" name="newPassword"
+                                   datatype="*6-16"></td>
                     </tr>
                     <tr>
                         <td>请重复输入密码：</td>
@@ -177,7 +191,8 @@
             <tr>
                 <td>登录账号：</td>
                 <td>
-                    <input type="text" class="bottomLine user-count" value="{{adminResult.baseInfo.userCount}}" readonly>
+                    <input type="text" class="bottomLine user-count" value="{{adminResult.baseInfo.userCount}}"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -188,7 +203,8 @@
             </tr>
             <tr>
                 <td>注册时间：</td>
-                <td><input type="text" class="bottomLine" value="{{adminResult.baseInfo.userRegistration}}" readonly></td>
+                <td><input type="text" class="bottomLine" value="{{adminResult.baseInfo.userRegistration}}" readonly>
+                </td>
             </tr>
         </table>
     </div>
@@ -246,28 +262,28 @@
                 <th>商家名称</th>
                 <th>创建时间</th>
             </tr>
-        {{each superAdminResult.shopList as shop }}
+            {{each superAdminResult.shopList as shop }}
             {{each shop.adminList as admin}}
-                <tr>
-                    <td>
-                        <input type="checkbox" value="{{admin.userId}}" name="admin">
-                    </td>
-                    <td>
-                        <img src="<%=request.getContextPath()%>/skins/images/{{admin.userImage}}">
-                        {{admin.userName}}
-                    </td>
-                    <td>
-                        {{admin.userCount}}
-                    </td>
-                    <td>
-                        {{admin.shopName}}
-                    </td>
-                    <td>
-                        {{admin.userTime}}
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" value="{{admin.userId}}" name="admin">
+                </td>
+                <td>
+                    <img src="<%=request.getContextPath()%>/skins/images/{{admin.userImage}}">
+                    {{admin.userName}}
+                </td>
+                <td>
+                    {{admin.userCount}}
+                </td>
+                <td>
+                    {{admin.shopName}}
+                </td>
+                <td>
+                    {{admin.userTime}}
+                </td>
+            </tr>
             {{/each}}
-        {{/each}}
+            {{/each}}
         </table>
     </div>
 
@@ -294,9 +310,9 @@
         </table>
     </div>
     <%-- 上传车辆，查询车辆，删除车辆，更新车辆 --%>
-    <div class="car-message">
-        <a href="car.jsp" class="btn btn-primary add-car">上传车辆</a>
-    </div>
+    <%-- <div class="car-message">
+         <a href="car.jsp" class="btn btn-primary add-car">上传车辆</a>
+     </div>--%>
 
 </script>
 
@@ -307,24 +323,24 @@
 
     function getImgURL(node) {
         var imgURL = "";
-        try{
+        try {
             var file = null;
-            if(node.files && node.files[0] ){
+            if (node.files && node.files[0]) {
                 file = node.files[0];
-            }else if(node.files && node.files.item(0)) {
+            } else if (node.files && node.files.item(0)) {
                 file = node.files.item(0);
             }
             //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
-            try{
+            try {
                 //Firefox7.0
-                imgURL =  file.getAsDataURL();
+                imgURL = file.getAsDataURL();
                 //alert("//Firefox7.0"+imgRUL);
-            }catch(e){
+            } catch (e) {
                 //Firefox8.0以上
                 imgRUL = window.URL.createObjectURL(file);
                 //alert("//Firefox8.0以上"+imgRUL);
             }
-        }catch(e){      //这里不知道怎么处理了，如果是遨游的话会报这个异常
+        } catch (e) {      //这里不知道怎么处理了，如果是遨游的话会报这个异常
             //支持html5的浏览器,比如高版本的firefox、chrome、ie10
             if (node.files && node.files[0]) {
                 var reader = new FileReader();
@@ -339,10 +355,10 @@
         return imgURL;
     }
 
-    function creatImg(imgRUL){   //根据指定URL创建一个Img对象
-       /* var textHtml = "<img src='"+imgRUL+"'/>";
-        $(".userImage").prepend(textHtml);*/
-        $(".user-image-show").attr({ src: imgRUL });
+    function creatImg(imgRUL) {   //根据指定URL创建一个Img对象
+        /* var textHtml = "<img src='"+imgRUL+"'/>";
+         $(".userImage").prepend(textHtml);*/
+        $(".user-image-show").attr({src: imgRUL});
     }
 </script>
 

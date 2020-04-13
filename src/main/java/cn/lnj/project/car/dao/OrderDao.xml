@@ -14,12 +14,28 @@
         #{shopId},
         #{carId},
         #{price},
-        #{orderTime}
+        #{orderTime},
+        #{endTime}
         )
     </insert>
 
     <select id="selectByUserId" resultMap="infoResultMap">
         SELECT * FROM `order` WHERE user_id = #{userId} ORDER BY order_time DESC limit 20;
     </select>
+    <select id="selectByShopId" resultMap="infoResultMap">
+        SELECT * FROM `order` WHERE shop_id = #{shopId} ORDER BY order_time DESC limit 20;
+    </select>
+    <select id="FindById" resultMap="infoResultMap">
+        SELECT * FROM `order` WHERE order_id = #{orderId} ;
+    </select>
+
+    <update id="editOrder" parameterType="cn.lnj.project.car.data.Order">
+        UPDATE `order` SET
+         price = #{price},
+         end_time = #{endTime}
+         WHERE
+         order_id = #{orderId};
+    </update>
+
 
 </mapper>
