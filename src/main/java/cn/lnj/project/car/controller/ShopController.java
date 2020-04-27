@@ -39,7 +39,7 @@ public class ShopController {
         shop.setShopEmail(shopEmail);
         shop.setShopLocation(shopLocation);
         shop.setJingDu(jingdu);
-        shop.setWeidu(weidu);
+         shop.setWeidu(weidu);
         shopService.insert(shop);
 
         //向商家邮箱发送邮件
