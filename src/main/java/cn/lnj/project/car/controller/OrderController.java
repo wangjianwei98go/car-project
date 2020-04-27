@@ -99,17 +99,17 @@ public class OrderController {
         Order order1 = orderService.FindById(orderId);
         order.setOrderId(orderId);
         order.setPrice(price + order1.getPrice());
-        long  l=new Long((long)day);
+        long l = new Long((long) day);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
-                       date = format1.parse(order1.getEndTime());
+            date = format1.parse(order1.getEndTime());
 
-             } catch (ParseException e) {
-                       e.printStackTrace();
-            }
-        Date date1=addDate(date,l);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date date1 = addDate(date, l);
         String endtime = formatter.format(date1);
         order.setEndTime(endtime);
         orderService.editOrder(order);
@@ -123,10 +123,11 @@ public class OrderController {
         // Shop shop= shopService.selectShop(shopId);
         //sendMail.successInform(user.getUserEmail(),user.getUserName(),shop.getShopEmail(),shop.getShopName(),shop.getShopPhone());
     }
+
     public static Date addDate(Date date, long day) {
         long time = date.getTime(); // 得到指定日期的毫秒数
-        day = day*24*60*60*1000; // 要加上的天数转换成毫秒数
-        time+=day; // 相加得到新的毫秒数
+        day = day * 24 * 60 * 60 * 1000; // 要加上的天数转换成毫秒数
+        time += day; // 相加得到新的毫秒数
         return new Date(time); // 将毫秒数转换成日期
     }
 }

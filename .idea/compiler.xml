@@ -11,6 +11,13 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="car-project" target="1.8" />
+      <module name="jeecms-admin" target="1.5" />
+      <module name="jeecms-common" target="1.5" />
+      <module name="jeecms-component" target="1.5" />
+      <module name="jeecms-front" target="1.5" />
+      <module name="jeecms-lucene" target="1.5" />
+      <module name="jeecms-mq-thread" target="1.5" />
+      <module name="jeecms-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

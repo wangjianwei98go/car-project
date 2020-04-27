@@ -15,7 +15,8 @@
         #{carId},
         #{price},
         #{orderTime},
-        #{endTime}
+        #{endTime},
+        #{state}
         )
     </insert>
 

@@ -25,6 +25,16 @@ public class Order {
     private String orderTime;
     @Column(name = "end_time")
     private String endTime;
+    @Column(name = "state")
+    private int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     public String getOrderId() {
         return orderId;

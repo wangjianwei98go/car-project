@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-admin" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-common" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-component" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-front" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-lucene" charset="UTF-8" />
+    <file url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-mq-thread" charset="UTF-8" />
+  </component>
 </project>

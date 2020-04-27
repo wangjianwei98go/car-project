@@ -38,7 +38,22 @@
                 </tr>
                 <tr>
                     <td>品牌：</td>
-                    <td><input class="carBrand" type="text" name="carBrand" placeholder="请输入车辆所属品牌" datatype="*">
+                    <td>
+<%--
+                        <input class="carBrand" type="text" name="carBrand" placeholder="请输入车辆所属品牌" datatype="*">
+--%>
+                        <select name="carBrand" id="carBrand" style="width: 480px">
+                            <option value="请选择车辆品牌">请选择车辆品牌</option>
+                            <option value="别克" > 别克</option> <option value="大众" > 大众</option>
+                            <option value="标致" > 标致</option> <option value="日产" > 日产</option>
+                            <option value="宝马" > 宝马</option> <option value="Jeep" >Jeep</option>
+                            <option value="马自达" > 马自达</option> <option value="沃尔沃" > 沃尔沃</option>
+                            <option value="丰田" > 丰田</option> <option value="法拉利" >法拉利</option>
+                            <option value="奔驰" > 奔驰</option> <option value="比亚迪" > 比亚迪</option>
+                            <option value="路虎" > 路虎</option> <option value="林肯" > 林肯</option>
+                            <option value="雷诺" > 雷诺</option> <option value="英菲蒂尼" > 英菲蒂尼</option>
+                            <option value="特斯拉" >特斯拉</option> <option value="玛莎拉蒂" > 玛莎拉蒂</option>
+                        </select>
 
                     </td>
                 </tr>
@@ -50,8 +65,14 @@
                 </tr>
                 <tr>
                     <td>类型：</td>
-                    <td><input class="carType" type="text" name="carType" placeholder="请输入车辆类型" datatype="*">
-
+                    <td>
+                        <select name="carType" id="carType" style="width: 480px">
+                            <option value="请选择车辆类型">请选择车辆类型</option>
+                            <option value="SUV" > SUV</option> <option value="紧凑型车" > 紧凑型车</option>
+                            <option value="卡车" > 卡车</option> <option value="皮车" > 皮车</option>
+                            <option value="货车" > 货车</option> <option value="MPV" >商务车</option>
+                            <option value="跑车" >跑车</option>
+                            </select>
                     </td>
                 </tr>
                 <tr>
@@ -250,6 +271,24 @@
     function createImg(imgRUL){   //根据指定URL创建一个Img对象
         var textHtml = "<div class='image-par'><img class='car-images' src='"+imgRUL+"'/><a onclick='deleteImage(this)'>删除</a></div>";
         $(".images-show").append(textHtml);
+    }
+
+    function getcarBrand() {
+        var url=context+"/service/car/getcarBrand";
+        $.ajax({
+            url: url,
+            type:"get",
+            dataType: "json",
+            success:function (data){
+                var selectOption = "";
+                selectOption += "<option></option>";
+                $.each(data, function(n, value) {
+                    // alert(n+" --"+JSON.stringify(value));
+                    selectOption+="<option value="+value.s_value+">"+value.s_label+"</option>"
+                });
+                $('#selectbox').html(selectOption);
+            }
+        });
     }
 </script>
 

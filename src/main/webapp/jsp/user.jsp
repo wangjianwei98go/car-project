@@ -124,7 +124,8 @@
                     <td>{{order.orderTime}}</td>
                     <td>{{order.endTime}}</td>
                     <td><a href="RentAgain.jsp?carId={{order.carId}}&orderId={{order.orderId}}">续租</a></td>
-                    <td><a href="detail.jsp?carId={{order.carId}}">还车</a></td>
+                    <td>
+                        <a href="detail.jsp?typeId={{order.state}}"> {{order.type}}</a></td>
                 </tr>
                 {{/each}}
             </table>
@@ -234,6 +235,31 @@
                 <td>{{carInfo.carPeople}}</td>
                 <td>{{carInfo.carGood}}</td>
                 <td>{{carInfo.carInfo}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <div class="car-info-list">
+        <span class="title">车辆订单</span>
+        <table class="table table-bordered">
+            <tr>
+
+                <th>车辆名称</th>
+                <th>客户姓名</th>
+                <th>客户邮箱</th>
+                <th>租赁时间</th>
+                <th>到期时间</th>
+                <th>操作</th>
+            </tr>
+            {{each adminResult.adminorders as adminorder}}
+            <tr>
+                <td><a href="detail.jsp?carId={{adminorder.carId}}">{{adminorder.carBrand}} {{adminorder.carName}}</a>
+                </td>
+                <td>{{adminorder.username}}</td>
+                <td><%--<a href="detail.jsp?shopId={{adminorder.shopId}}">--%>{{adminorder.shopName}}</a></td>
+                <td>{{adminorder.orderTime}}</td>
+                <td>{{adminorder.endTime}}</td>
+                <td><a href="detail.jsp?admintypeId={{adminorder.admintype}}">{{adminorder.admintype}}</a></td>
             </tr>
             {{/each}}
         </table>
