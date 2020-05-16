@@ -44,6 +44,16 @@
             </div>
             <div class="tr-login">
                     <span class="tip-span">
+                        <span class="need">*</span>驾驶证号
+                    </span>
+                <span></span>
+                <span class="input-span">
+                        <input type="text" name="CarId" class="inputxt CarId" datatype="*" ajaxurl="<%=request.getContextPath()%>/service/user/checkCarId" nullmsg="请输入" errormsg="输入正确信息" />
+                    </span>
+                <span class="Validform_checktip"></span>
+            </div>
+            <div class="tr-login">
+                    <span class="tip-span">
                         <span class="need">*</span>密码:
                     </span>
                 <span class="input-span">

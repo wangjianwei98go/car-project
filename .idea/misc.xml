@@ -7,6 +7,7 @@
     <option name="excludeFilter" value="" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-front" />
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="JavaScriptSettings">
@@ -16,7 +17,19 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-admin/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-common/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-component/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-front/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-lucene/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/jeecms-mq-thread/pom.xml" />
+        <option value="D:/迅雷下载/JEECMSx1.2.0_mysql_src/jeecms-parent/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />

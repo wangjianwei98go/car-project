@@ -10,6 +10,7 @@ public interface OrderDao {
 
     /**
      * 插入订单
+     *
      * @param order 订单信息
      */
     void insert(Order order);
@@ -17,16 +18,19 @@ public interface OrderDao {
 
     /**
      * 查询该用户下的订单
+     *
      * @param userId 用户id
      * @return
      */
     List<Order> selectByUserId(String userId);
+
     /*
-    * 查询该商户下的订单
-    * shopId
-    * */
+     * 查询该商户下的订单
+     * shopId
+     * */
     List<Order> selectByShopId(String shopId);
 
     void editOrder(Order order);
+
     Order FindById(String orderId);
 }

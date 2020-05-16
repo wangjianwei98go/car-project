@@ -68,7 +68,8 @@ public class User {
 
     @Column(name = "is_admin")
     private int isAdmin;
-
+    @Column(name = "car_id")
+    private String carid;
     public String getUserId() {
         return userId;
     }
@@ -147,6 +148,13 @@ public class User {
 
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
+    }
+    public String getCarid() {
+        return carid;
+    }
+
+    public void setCarid(String isAdmin) {
+        this.carid = carid;
     }
 
 }

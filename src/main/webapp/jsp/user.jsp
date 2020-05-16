@@ -124,7 +124,10 @@
                     <td>{{order.orderTime}}</td>
                     <td>{{order.endTime}}</td>
                     <td><a href="RentAgain.jsp?carId={{order.carId}}&orderId={{order.orderId}}">续租</a></td>
-                    <td><a href="detail.jsp?carId={{order.carId}}">还车</a></td>
+                    <td><%-- <a href="RentAgain.jsp?carId={{order.carId}}&orderId={{order.orderId}}">续租</a>--%>
+                        <a onclick='work()' id="aaa" value="{{order.type}}"> {{order.type}}</a>
+                        <a hidden="hidden" id="bbb" value="{{order.orderId}}">{{order.orderId}}</a>
+                    </td>
                 </tr>
                 {{/each}}
             </table>
@@ -234,6 +237,35 @@
                 <td>{{carInfo.carPeople}}</td>
                 <td>{{carInfo.carGood}}</td>
                 <td>{{carInfo.carInfo}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <div class="car-info-list">
+        <span class="title">车辆订单</span>
+        <table class="table table-bordered">
+            <tr>
+
+                <th>车辆名称</th>
+                <th>客户姓名</th>
+                <th>客户邮箱</th>
+                <th>租赁时间</th>
+                <th>到期时间</th>
+                <th>操作</th>
+            </tr>
+            {{each adminResult.adminorders as adminorder}}
+            <tr>
+                <td><a href="detail.jsp?carId={{adminorder.carId}}">{{adminorder.carBrand}} {{adminorder.carName}}</a>
+                </td>
+                <td>{{adminorder.username}}</td>
+                <td><%--<a href="detail.jsp?shopId={{adminorder.shopId}}">--%>{{adminorder.shopName}}</a></td>
+                <td>{{adminorder.orderTime}}</td>
+                <td>{{adminorder.endTime}}</td>
+                <td>
+                    <a onclick='work1()' id="ccc" value="{{adminorder.admintype}}"> {{adminorder.admintype}}</a>
+                    <a hidden="hidden" id="ddd" value="{{adminorder.orderId}}">{{adminorder.orderId}}</a>
+                </td>
+
             </tr>
             {{/each}}
         </table>
@@ -359,6 +391,63 @@
         /* var textHtml = "<img src='"+imgRUL+"'/>";
          $(".userImage").prepend(textHtml);*/
         $(".user-image-show").attr({src: imgRUL});
+    }
+
+    function work() {
+        var user = getCookie("userName");
+        var zxc = "";
+        var cvb = "";
+        cvb = $("#bbb").text();
+        zxc = $("#aaa").text();
+        if (zxc == " 还车") {
+            if(user){
+                var d = dialog({
+                    title:"还车提醒",
+                    content: '您确定还车吗？',
+                    okValue: '确认还车',
+                    ok: function () {
+                        window.location.href = document.referrer;
+                        rentagain3(cvb);
+                    },
+                    cancelValue: '取消',
+                    cancel: function () {}
+                });
+                d.show();
+            }
+        } else if (zxc == " 审核详情") {
+            window.location.href ="http://localhost:8085/car_project_war/jsp/userthing.jsp?carId="+cvb;
+        } else if (zxc == " 审核中") {
+            alert("请等待审核！");
+        }
+
+    }
+    function work1() {
+        var user = getCookie("userName");
+        var zxc = "";
+        var cvb = "";
+        cvb = $("#ddd").text();
+        zxc = $("#ccc").text();
+        if (zxc == " 审核") {
+            window.location.href ="http://localhost:8085/car_project_war/jsp/shenhe.jsp?carId="+cvb;
+        } else if (zxc == " 审核详情") {
+            window.location.href ="http://localhost:8085/car_project_war/jsp/adminthing.jsp?carId="+cvb;
+        } else if (zxc == " 审核中") {
+            alert("请等待审核！");
+        }
+
+    }
+    function  rentagain3(cvb) {
+        var userId=getCookie("userId");
+        $.ajax({
+            url: context + "/service/order/again1",
+            type: 'GET',
+            async: true,
+            contentType: "application/json;charset=utf-8",
+            data:{"orderId":cvb,"userId":userId},
+            success: function (data) {
+            }
+        });
+        window.location.reload();
     }
 </script>
 

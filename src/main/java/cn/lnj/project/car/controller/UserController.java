@@ -45,7 +45,7 @@ public class UserController {
      */
     @RequestMapping(value = "/insert" , method = RequestMethod.POST )
     @ResponseBody()
-    public void insert(@RequestParam String email, String userName, String userPassword, HttpServletResponse response){
+    public void insert(@RequestParam String email, String userName, String userPassword,String CarId, HttpServletResponse response){
         if( !("".equals(email))&& !("".equals(userName)) && !("".equals(userPassword)) ){
             User user = new User();
             user.setUserId(UUID.randomUUID().toString());
@@ -53,6 +53,7 @@ public class UserController {
             user.setUserName(userName);
             user.setUserEmail(email);
             user.setIsActive(1);
+            user.setCarid(CarId);
             user.setUserPassword(userPassword);
             Date currentTime = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -60,7 +61,6 @@ public class UserController {
             user.setUserRegistration(dateString);
             user.setUserImage("default.png");
             userService.insertUser(user);
-            //sendMail.active(email,user.getUserId());
         }
     }
     /**
@@ -83,6 +83,18 @@ public class UserController {
     @ResponseBody()
     public JSONObject selectUserById(@RequestParam String userId){
         return  userService.selectById(userId);
+    }
+    /**
+     * 登录、注册检查
+     * 前台表单的name值不同，可据此改变查询条件，也可改变返回内容
+     * @param name 表单name值
+     * @param param 表单输入值
+     * @return 校验结果和显示文字
+     */
+    @RequestMapping( value = "/checkCarId",method = RequestMethod.GET)
+    @ResponseBody()
+    public JSONObject loginRegistCheckCarId(@RequestParam String name,String param){
+        return userService.checkCarId(name,param);
     }
 
     /**

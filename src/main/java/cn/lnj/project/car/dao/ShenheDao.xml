@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.lnj.project.car.dao.ShenheDao">
+
+    <resultMap id="infoResultMap" type="cn.lnj.project.car.data.Shenhe"></resultMap>
+
+    <insert id="insert" parameterType="cn.lnj.project.car.data.Shenhe">
+        INSERT INTO
+          `shenhe`
+        VALUES (
+        #{id},
+        #{orderid},
+        #{carImage},
+         #{del},
+          #{message},
+           #{money},
+            #{userid},
+             #{style}
+        )
+    </insert>
+
+    <select id="selectShopAdmin" resultMap="infoResultMap">
+        SELECT * FROM  shenhe WHERE  orderid = #{orderid};
+    </select>
+    <update id="updateshenhe" >
+        UPDATE shenhe
+        SET
+            del ="1"
+        WHERE orderid = #{orderid}
+    </update>
+</mapper>

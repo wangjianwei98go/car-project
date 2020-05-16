@@ -42,7 +42,7 @@ public interface UserService {
      * @return 校验结果和显示文字
      */
     JSONObject check(String name,String param);
-
+    JSONObject checkCarId(String name,String param);
     /**
      * 校验密码
      * @param userName 用户名

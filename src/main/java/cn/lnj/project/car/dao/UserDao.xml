@@ -19,7 +19,8 @@
         #{isActive},
         #{rentCount},
         #{userImage},
-        #{isAdmin}
+        #{isAdmin},
+        #{carid}
         );
     </insert>
 

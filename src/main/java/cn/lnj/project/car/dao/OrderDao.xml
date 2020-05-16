@@ -15,7 +15,8 @@
         #{carId},
         #{price},
         #{orderTime},
-        #{endTime}
+        #{endTime},
+        #{state}
         )
     </insert>
 
@@ -32,7 +33,8 @@
     <update id="editOrder" parameterType="cn.lnj.project.car.data.Order">
         UPDATE `order` SET
          price = #{price},
-         end_time = #{endTime}
+         end_time = #{endTime},
+         state= #{state}
          WHERE
          order_id = #{orderId};
     </update>

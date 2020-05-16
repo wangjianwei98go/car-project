@@ -125,7 +125,6 @@ function addActive() {
 function rentagain() {
     var  user = getCookie("userName");
     var orderId=getQueryString("orderId");
-    alert(orderId);
     var carBrand = $(".car-brand").text();
     var carName = $(".car-name").text();
     var day =$(".day").val();
